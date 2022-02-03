@@ -183,5 +183,39 @@ h1 {
   section.hero svg.down__arrow path {
     fill: black;
   }
+  .feature {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (auto)[2];
+        grid-template-columns: repeat(2, auto);
+    margin-bottom: 8em;
+    gap: 3em;
+  }
+  .feature .content {
+    text-align: right;
+    width: 25em;
+  }
+  .feature img {
+    width: 25em;
+  }
+  .feature.rev {
+        grid-template-areas: "left right";
+  }
+  .feature.rev img {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: left;
+  }
+  .feature.rev .content {
+    text-align: left;
+    width: 25em;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
+  }
 }
 /*# sourceMappingURL=main.css.map */
