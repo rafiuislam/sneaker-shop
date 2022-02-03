@@ -19,6 +19,7 @@ a {
     background-position-y: 20%;
     background-size: cover;
     z-index: -1;
+    animation: intro 2s forwards;
 }
 
 .logo {
@@ -74,12 +75,15 @@ header {
 section.hero {
     color: white;
     height: 90vh;
+    animation: downMove 0.9s ease-in-out forwards;
+    opacity: 0;
 
     .down__arrow {
         stroke: white;
         position: absolute;
         bottom: 2em;
         width: 1em;
+        animation: arrowMove 0.9s infinite alternate-reverse;
 
         path {
             fill: white;
@@ -217,5 +221,40 @@ h1 {
     .wrapper {
         width: 1200px;
         margin: 0 auto;
+    }
+}
+
+@keyframes intro {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes arrowMove {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(20px);
+    }
+}
+
+@keyframes downMove {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
